@@ -53,5 +53,7 @@ public class SmokeTest2 extends BaseTest {
                 .loginWithCorrectCredentials("atrostyanko+0401@gmail.com", "QqtRK9elseEfAk6ilYcJ");
 
         dashboardPage.getSidebarProjectsAddButton().click();
+
+
     }
 }

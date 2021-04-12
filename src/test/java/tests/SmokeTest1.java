@@ -5,8 +5,10 @@ import enums.ProjectType;
 import models.Project;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.AddProjectPage;
 import pages.DashboardPage;
 import pages.LoginPage;
+import pages.OverviewPage;
 import steps.LoginSteps;
 import steps.ProjectSteps;
 
@@ -45,21 +47,5 @@ public class SmokeTest1 extends BaseTest {
                 "Email/Login or Password is incorrect. Please try again.");
     }
 
-    @Test
-    public void AddNewProjectTes() {
-        LoginSteps loginSteps = new LoginSteps(browsersService);
-        DashboardPage dashboardPage = loginSteps
-                .loginWithCorrectCredentials("atrostyanko+0401@gmail.com", "QqtRK9elseEfAk6ilYcJ");
 
-        dashboardPage.getSidebarProjectsAddButton().click();
-
-        Project project = new Project();
-        project.setName("Test Project AT");
-        project.setAnnouncement("Test Project Definition");
-        project.setShowAnnouncement(true);
-        project.setType(ProjectType.MULTIPLE);
-
-        ProjectSteps projectSteps = new ProjectSteps(browsersService);
-        projectSteps.AddProject(project);
-    }
 }
