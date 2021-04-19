@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class AddProjectPage<list> extends BasePage {
+public class AddProjectPage extends BasePage {
 
     // Описание селекторов
     protected static final By nameBy = By.id("name");

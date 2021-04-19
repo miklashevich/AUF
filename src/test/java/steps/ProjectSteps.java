@@ -4,8 +4,11 @@ import baseEntities.BaseStep;
 import core.BrowsersService;
 import enums.ProjectType;
 import models.Project;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import pages.AddProjectPage;
 import pages.OverviewPage;
+import pages.ProjectsPage;
 
 public class ProjectSteps extends BaseStep {
 
@@ -13,8 +16,10 @@ public class ProjectSteps extends BaseStep {
         super(browsersService);
     }
 
+
+
     public OverviewPage addProject (Project project) {
-   AddProjectPage addProjectPage = new AddProjectPage(browsersService, false);
+        AddProjectPage addProjectPage = new AddProjectPage(browsersService, false);
         addProjectPage.getNameInput().sendKeys(project.getName());
         addProjectPage.getAnnouncementInput().sendKeys(project.getAnnouncement());
         if (project.isShowAnnouncement()) addProjectPage.IsShowAnnouncementInput().click();
@@ -25,7 +30,7 @@ public class ProjectSteps extends BaseStep {
 
         addProjectPage.addProjectButton().click();
 
-       return new OverviewPage(browsersService, false);
+        return new OverviewPage(browsersService, false);
 
 
         // зайти на страницу
@@ -35,11 +40,31 @@ public class ProjectSteps extends BaseStep {
 
     }
 
-    public void UpdateProject(Project project) {
+
+    public OverviewPage UpdateProject(String projectName) {
+        ProjectsPage projectsPage = new ProjectsPage(browsersService, false);
+        WebElement rowElement = projectsPage.getRowForElementInTable(projectName);
+        rowElement.findElement(By.className("icon-small-edit")).click();
+
+
+        projectsPage.saveProjectButton().click();
+
+
+        return new OverviewPage(browsersService, false);
+
 
     }
 
-    public void DeleteProject(Project project) {
+    public OverviewPage DeleteProject(String projectName) {
+        ProjectsPage projectsPage = new ProjectsPage(browsersService, false);
+        projectsPage.getDeleteIconForElementInTable(projectName).click();
+        projectsPage.getCheckbox().click();
+        projectsPage.buttonOk().click();
+
+
+       return new OverviewPage(browsersService, false);
+
+
 
     }
 }

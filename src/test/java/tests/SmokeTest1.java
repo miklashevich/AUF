@@ -14,7 +14,7 @@ import steps.ProjectSteps;
 
 public class SmokeTest1 extends BaseTest {
 
-    @Test
+    @Test (timeOut = 8000L, description = "max время выполнения теста, если не успее будет fail")
     public void LoginTest() {
 /*
         1. Запустить драйвер
