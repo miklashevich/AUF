@@ -11,9 +11,25 @@ public abstract class BaseTest {
     protected BrowsersService browsersService;
     protected ReadProperties readProperties;
 
+    @BeforeSuite
+    public void setupSuite(){
+        System.out.println("BeforeSuite");
+    }
+
+    @BeforeGroups
+    public void setupGroups(){
+        System.out.println("BeforeGroups");
+    }
+
     @BeforeTest
     public void setupTest() {
+        System.out.println("BeforeTest");
         readProperties = new ReadProperties();
+    }
+
+    @BeforeClass
+    public void setupClass() {
+        System.out.println("BeforeClass");
     }
 
     @BeforeMethod
@@ -28,4 +44,27 @@ public abstract class BaseTest {
         browsersService.getDriver().quit();
         browsersService = null;
     }
+
+    @AfterClass
+    public void tearDownClass() {
+        System.out.println("BeforeClass");
+    }
+
+    @AfterTest
+    public void tearDownTest(){
+    System.out.println("AfterTest");
+    }
+
+
+    @AfterGroups
+    public void tearDownGroups(){
+        System.out.println("AfterGroups");
+    }
+
+
+    @AfterSuite
+    public void tearDownSuite(){
+        System.out.println("AfterSuite");
+    }
+
 }

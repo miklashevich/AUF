@@ -1,0 +1,62 @@
+[
+  {
+    "id": 79,
+    "name": "1",
+    "announcement": "1",
+    "show_announcement": false,
+    "is_completed": false,
+    "completed_on": null,
+    "suite_mode": 1,
+    "url": "https://aqa04onl01.testrail.io/index.php?/projects/overview/79"
+  },
+  {
+    "id": 80,
+    "name": "This is a new project",
+    "announcement": "This is the description for the project",
+    "show_announcement": true,
+    "is_completed": false,
+    "completed_on": null,
+    "suite_mode": 3,
+    "url": "https://aqa04onl01.testrail.io/index.php?/projects/overview/80"
+  },
+  {
+    "id": 156,
+    "name": "11",
+    "announcement": "1",
+    "show_announcement": true,
+    "is_completed": false,
+    "completed_on": null,
+    "suite_mode": 3,
+    "url": "https://aqa04onl01.testrail.io/index.php?/projects/overview/156"
+  },
+  {
+    "id": 161,
+    "name": "Aliaksandr_Tkachou",
+    "announcement": "Announcement",
+    "show_announcement": true,
+    "is_completed": false,
+    "completed_on": null,
+    "suite_mode": 1,
+    "url": "https://aqa04onl01.testrail.io/index.php?/projects/overview/161"
+  },
+  {
+    "id": 163,
+    "name": "Aliaksandr_Tkachou",
+    "announcement": "Announcement",
+    "show_announcement": true,
+    "is_completed": false,
+    "completed_on": null,
+    "suite_mode": 1,
+    "url": "https://aqa04onl01.testrail.io/index.php?/projects/overview/163"
+  },
+  {
+    "id": 170,
+    "name": "This is a new project",
+    "announcement": "This is the description for the project",
+    "show_announcement": true,
+    "is_completed": false,
+    "completed_on": null,
+    "suite_mode": 3,
+    "url": "https://aqa04onl01.testrail.io/index.php?/projects/overview/170"
+  }
+]
