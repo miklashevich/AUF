@@ -4,13 +4,14 @@ import core.BrowsersService;
 import core.ReadProperties;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
+import utils.Waits;
 
 import java.util.concurrent.TimeUnit;
 
 public abstract class BaseTest {
     protected BrowsersService browsersService;
     protected ReadProperties readProperties;
-
+    protected Waits waits;
     @BeforeSuite
     public void setupSuite(){
         System.out.println("BeforeSuite");
@@ -37,6 +38,7 @@ public abstract class BaseTest {
         browsersService = new BrowsersService();
         browsersService.getDriver().manage().timeouts().implicitlyWait(0, TimeUnit.MILLISECONDS);
         browsersService.getDriver().get(readProperties.getURL());
+        waits = browsersService.getWaits();
     }
 
     @AfterMethod
