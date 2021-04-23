@@ -46,12 +46,14 @@ public class SmokeTest2 extends BaseTest {
                 "Email/Login or Password is incorrect. Please try again.");
     }
 
-    @Test
+    @Test //(dependsOnMethods = "LoginTestWithIncorrectCredentials")
     public void AddNewProjectTes() {
         LoginSteps loginSteps = new LoginSteps(browsersService);
         DashboardPage dashboardPage = loginSteps
                 .loginWithCorrectCredentials("atrostyanko+0401@gmail.com", "QqtRK9elseEfAk6ilYcJ");
 
         dashboardPage.getSidebarProjectsAddButton().click();
+
+
     }
 }
