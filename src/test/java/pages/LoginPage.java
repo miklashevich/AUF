@@ -1,3 +1,4 @@
+
 package pages;
 
 import baseEntities.BasePage;
@@ -11,6 +12,8 @@ public class LoginPage extends BasePage {
     protected static final By passwordInputBy = By.id("password");
     protected static final By logInButtonBy = By.id("button_primary");
     protected static final By errorLabelBy = By.className("error-text");
+    protected static final By emailIsRequiredBy = By.className("loginpage-message ");
+
 
     // Инициализация класса
     public LoginPage(BrowsersService browsersService, boolean openPageByUrl) {
@@ -35,16 +38,18 @@ public class LoginPage extends BasePage {
     public WebElement getEmailInput() {
         return driver.findElement(emailInputBy);
     }
-
     public WebElement getPasswordInput() {
         return driver.findElement(passwordInputBy);
     }
-
     public WebElement getLogInButton() {
         return driver.findElement(logInButtonBy);
     }
-
     public String getErrorText() {
         return driver.findElement(errorLabelBy).getText();
     }
+    public String emailIsRequired() {
+        return driver.findElement(emailIsRequiredBy).getText();
+    }
+
+
 }
