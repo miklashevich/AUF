@@ -1,7 +1,7 @@
 package utils;
 
-import core.BrowsersService;
 import core.ReadProperties;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -25,6 +25,9 @@ private WebDriverWait wait;
 
     public WebElement waitForVisibility(WebElement webElement){
         return wait.until(ExpectedConditions.visibilityOf(webElement));
+    }
+    public Alert waitForVisibilityAlert(){
+        return wait.until(ExpectedConditions.alertIsPresent());
     }
 
 }
