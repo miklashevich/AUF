@@ -4,12 +4,14 @@ import core.BrowsersService;
 import core.ReadProperties;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
+import utils.Listener;
 import utils.Waits;
 
 import java.util.concurrent.TimeUnit;
 
+@Listeners(Listener.class)
 public abstract class BaseTest {
-    protected BrowsersService browsersService;
+    public BrowsersService browsersService;
     protected ReadProperties readProperties;
     protected Waits waits;
     @BeforeSuite

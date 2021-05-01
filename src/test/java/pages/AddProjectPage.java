@@ -4,6 +4,8 @@ import baseEntities.BasePage;
 import core.BrowsersService;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import wrappers.CheckBox;
+import wrappers.RadioButton;
 
 import java.util.List;
 
@@ -19,6 +21,7 @@ public class AddProjectPage extends BasePage {
     protected static final By suite_mode_singleBy = By.id("suite_mode_single");
     protected static final By suite_mode_single_baselineBy = By.id("suite_mode_single_baseline");
     protected static final By suite_mode_multiBy = By.id("suite_mode_multi");
+    protected static final By radioButtonSelector = By.cssSelector("[name='suite_mode']");
 
 
 
@@ -52,7 +55,12 @@ public class AddProjectPage extends BasePage {
     public WebElement getAnnouncementInput() {
         return driver.findElement(announcementBy);
     }
-    public WebElement IsShowAnnouncementInput() { return driver.findElement(isShowAnnouncementBy);}
+
+    //public WebElement IsShowAnnouncementInput() { return driver.findElement(isShowAnnouncementBy);}
+    public CheckBox setCheckBox(){
+        return new CheckBox(driver, isShowAnnouncementBy);
+    }
+
     public WebElement getTypeInput() {return driver.findElement(selectTypeBy);}
 
     public WebElement suite_mode_singleInput() { return driver.findElement(suite_mode_singleBy);}
@@ -65,7 +73,9 @@ public class AddProjectPage extends BasePage {
         return driver.findElement(successTextBy).getText();
     }
 
-
+public RadioButton radioButton(){
+        return new RadioButton(driver, radioButtonSelector);
+}
 
 
 }

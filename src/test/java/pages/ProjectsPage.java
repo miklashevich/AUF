@@ -5,6 +5,7 @@ import baseEntities.BasePage;
 import core.BrowsersService;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import wrappers.Table;
 
 
 public class ProjectsPage extends BasePage {
@@ -21,7 +22,7 @@ public class ProjectsPage extends BasePage {
     String rowForElementInTableSelector = "//a[text()='remove']/ancestor::tr";
     protected static final By announcementBy = By.id("announcement");
     protected static final By saveProjectButtonBy = By.id("accept");
-
+    protected static final By tableBy = By.className("grid");
 
     // Инициализация класса
 
@@ -79,4 +80,6 @@ public class ProjectsPage extends BasePage {
     public WebElement saveProjectButton() {
         return driver.findElement(saveProjectButtonBy);
     }
+
+    public Table projectTable = new Table(driver, tableBy);
 }

@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import pages.AddProjectPage;
 import pages.OverviewPage;
 import pages.ProjectsPage;
+import wrappers.CheckBox;
 
 public class ProjectSteps extends BaseStep {
 
@@ -22,7 +23,8 @@ public class ProjectSteps extends BaseStep {
         AddProjectPage addProjectPage = new AddProjectPage(browsersService, false);
         addProjectPage.getNameInput().sendKeys(project.getName());
         addProjectPage.getAnnouncementInput().sendKeys(project.getAnnouncement());
-        if (project.isShowAnnouncement()) addProjectPage.IsShowAnnouncementInput().click();
+        //if (project.isShowAnnouncement()) addProjectPage.IsShowAnnouncementInput().click();
+
 
         if(project.getType().toString().equals("SINGLE_FOR_ALL_CASES")) addProjectPage.suite_mode_singleInput().click();
         if(project.getType().toString().equals("SINGLE_WITH_BASELINE"))addProjectPage.suite_mode_single_baselineInput().click();

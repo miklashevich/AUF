@@ -5,6 +5,7 @@ import baseEntities.BasePage;
 import core.BrowsersService;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import wrappers.Button;
 
 public class LoginPage extends BasePage {
     // Описание селекторов
@@ -41,9 +42,13 @@ public class LoginPage extends BasePage {
     public WebElement getPasswordInput() {
         return driver.findElement(passwordInputBy);
     }
-    public WebElement getLogInButton() {
-        return driver.findElement(logInButtonBy);
+    //public WebElement getLogInButton() {
+       // return driver.findElement(logInButtonBy);
+   // }
+    public Button getLogInButton(){
+    return new Button(driver, logInButtonBy);
     }
+
     public String getErrorText() {
         return driver.findElement(errorLabelBy).getText();
     }
