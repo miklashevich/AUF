@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 public abstract class BasePage {
     protected static final int WAIT_FOR_PAGE_LOAD_IN_SECONDS = 5;
     protected WebDriver driver;
-    private BrowsersService browsersService;
+    protected BrowsersService browsersService;
     public String baseUrl;
 
     protected abstract void openPage();

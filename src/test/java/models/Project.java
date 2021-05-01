@@ -39,4 +39,6 @@ public class Project {
     public void setType(ProjectType type) {
         this.type = type;
     }
+
+
 }
