@@ -29,7 +29,7 @@ public class TestNgAttributesTests extends BaseTest {
         LoginSteps loginSteps = new LoginSteps(browsersService);
         LoginPage loginPage = loginSteps.loginWithIncorrectCredentials("test@gmail.com", "qweqwe");
 
-        Assert.assertEquals(loginPage.getErrorText(),
+        Assert.assertEquals(loginPage.emailInput.getText(),
                 "Email/Login or Password is incorrect. Please try again.");
     }
     @Test (priority = 2)

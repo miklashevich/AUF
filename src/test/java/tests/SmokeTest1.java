@@ -49,7 +49,7 @@ public class SmokeTest1 extends BaseTest {
         LoginSteps loginSteps = new LoginSteps(browsersService);
         LoginPage loginPage = loginSteps.loginWithIncorrectCredentials("test@gmail.com", "qweqwe");
 
-        Assert.assertEquals(loginPage.getErrorText(),
+        Assert.assertEquals(loginPage.errorLabel.getText(),
                 "Email/Login or Password is incorrect. Please try again.");
     }
 
@@ -58,9 +58,9 @@ public class SmokeTest1 extends BaseTest {
     public void waitTest() {
 
         LoginPage loginPage = new LoginPage(browsersService, true);
-        loginPage.getEmailInput().sendKeys("atrostyanko+0401@gmail.com");
-        loginPage.getPasswordInput().sendKeys("QqtRK9elseEfAk6ilYcJ");
-        loginPage.getLogInButton().click();
+        loginPage.emailInput.sendKeys("atrostyanko+0401@gmail.com");
+        loginPage.passwordInput.sendKeys("QqtRK9elseEfAk6ilYcJ");
+        loginPage.logInButton.click();
 
         WebDriverWait wait = new WebDriverWait(browsersService.getDriver(), 20);
 WebElement webElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("sidebar-projects-add")));
@@ -72,9 +72,9 @@ WebElement webElement = wait.until(ExpectedConditions.visibilityOfElementLocated
     public void waitTest2() {
 
         LoginPage loginPage = new LoginPage(browsersService, true);
-        loginPage.getEmailInput().sendKeys("atrostyanko+0401@gmail.com");
-        loginPage.getPasswordInput().sendKeys("QqtRK9elseEfAk6ilYcJ");
-        loginPage.getLogInButton().click();
+        loginPage.emailInput.sendKeys("atrostyanko+0401@gmail.com");
+        loginPage.passwordInput.sendKeys("QqtRK9elseEfAk6ilYcJ");
+        loginPage.logInButton.click();
 
 
         WebElement webElement = waits.waitForVisibility(By.id("sidebar-projects-add"));
@@ -85,9 +85,9 @@ WebElement webElement = wait.until(ExpectedConditions.visibilityOfElementLocated
     public void waitTest3() {
 
         LoginPage loginPage = new LoginPage(browsersService, true);
-        loginPage.getEmailInput().sendKeys("atrostyanko+0401@gmail.com");
-        loginPage.getPasswordInput().sendKeys("QqtRK9elseEfAk6ilYcJ");
-        loginPage.getLogInButton().click();
+        loginPage.emailInput.sendKeys("atrostyanko+0401@gmail.com");
+        loginPage.passwordInput.sendKeys("QqtRK9elseEfAk6ilYcJ");
+        loginPage.logInButton.click();
 
 
         WebElement webElement = waits.waitForVisibility(
