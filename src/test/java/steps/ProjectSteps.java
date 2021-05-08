@@ -4,6 +4,8 @@ import baseEntities.BaseStep;
 import core.BrowsersService;
 import enums.ProjectType;
 import models.Project;
+import models.ProjectBuilder;
+import models.ProjectBuilder.Builder;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import pages.AddProjectPage;
@@ -34,14 +36,24 @@ public class ProjectSteps extends BaseStep {
 
         return new OverviewPage(browsersService, false);
 
-
-        // зайти на страницу
-        // заполнить форму
-        // сохранить запись
-
-
     }
 
+    public OverviewPage addProject (ProjectBuilder projectBuilder) {
+        AddProjectPage addProjectPage = new AddProjectPage(browsersService, false);
+        addProjectPage.getNameInput().sendKeys(projectBuilder.getName());
+        addProjectPage.getAnnouncementInput().sendKeys(projectBuilder.getAnnouncement());
+        //if (project.isShowAnnouncement()) addProjectPage.IsShowAnnouncementInput().click();
+
+
+        if(projectBuilder.getType().toString().equals("SINGLE_FOR_ALL_CASES")) addProjectPage.suite_mode_singleInput().click();
+        if(projectBuilder.getType().toString().equals("SINGLE_WITH_BASELINE"))addProjectPage.suite_mode_single_baselineInput().click();
+        if(projectBuilder.getType().toString().equals("MULTIPLE")) addProjectPage.suite_mode_multiInput().click();
+
+        addProjectPage.addProjectButton().click();
+
+        return new OverviewPage(browsersService, false);
+
+    }
 
     public OverviewPage UpdateProject(String projectName) {
         ProjectsPage projectsPage = new ProjectsPage(browsersService, false);
