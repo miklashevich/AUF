@@ -8,15 +8,18 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import utils.Waits;
 
 public class BrowsersService {
     private WebDriver driver = null;
     private DriverManagerType driverManagerType;
+    private Waits waits;
 
     public BrowsersService() {
         ReadProperties readProperties = new ReadProperties();
 
         driver = new BrowsersService(readProperties.getBrowserName()).getDriver();
+        waits = new Waits(driver);
     }
 
     public BrowsersService(String browserName) {
@@ -58,6 +61,11 @@ public class BrowsersService {
     public WebDriver getDriver() {
         return driver;
     }
+
+    public Waits getWaits() {
+        return waits;
+    }
+
     public void sleep(int milliseconds) {
         try {
             Thread.sleep(milliseconds);
