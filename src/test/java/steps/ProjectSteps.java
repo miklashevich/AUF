@@ -4,6 +4,7 @@ import baseEntities.BaseStep;
 import core.BrowsersService;
 import enums.ProjectType;
 import models.Project;
+import models.ProjectBuilder;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import pages.AddProjectPage;
@@ -18,24 +19,21 @@ public class ProjectSteps extends BaseStep {
 
 
 
-    public OverviewPage addProject (Project project) {
+    public OverviewPage addProject (ProjectBuilder projectBuilder) {
         AddProjectPage addProjectPage = new AddProjectPage(browsersService, false);
-        addProjectPage.getNameInput().sendKeys(project.getName());
-        addProjectPage.getAnnouncementInput().sendKeys(project.getAnnouncement());
-        if (project.isShowAnnouncement()) addProjectPage.IsShowAnnouncementInput().click();
+        addProjectPage.getNameInput().sendKeys(projectBuilder.getName());
+        addProjectPage.getAnnouncementInput().sendKeys(projectBuilder.getAnnouncement());
+        if (projectBuilder. isShowAnnouncement()) addProjectPage.IsShowAnnouncementInput().click();
 
-        if(project.getType().toString().equals("SINGLE_FOR_ALL_CASES")) addProjectPage.suite_mode_singleInput().click();
-        if(project.getType().toString().equals("SINGLE_WITH_BASELINE"))addProjectPage.suite_mode_single_baselineInput().click();
-        if(project.getType().toString().equals("MULTIPLE")) addProjectPage.suite_mode_multiInput().click();
+        if(projectBuilder.getType().toString().equals("SINGLE_FOR_ALL_CASES")) addProjectPage.suite_mode_singleInput().click();
+        if(projectBuilder.getType().toString().equals("SINGLE_WITH_BASELINE"))addProjectPage.suite_mode_single_baselineInput().click();
+        if(projectBuilder.getType().toString().equals("MULTIPLE")) addProjectPage.suite_mode_multiInput().click();
 
         addProjectPage.addProjectButton().click();
 
         return new OverviewPage(browsersService, false);
 
 
-        // зайти на страницу
-        // заполнить форму
-        // сохранить запись
 
 
     }

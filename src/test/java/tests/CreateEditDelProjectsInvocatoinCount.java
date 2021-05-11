@@ -3,6 +3,7 @@ package tests;
 import baseEntities.BaseTest;
 import enums.ProjectType;
 import models.Project;
+import models.ProjectBuilder;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.DashboardPage;
@@ -22,20 +23,22 @@ public class CreateEditDelProjectsInvocatoinCount extends BaseTest {
                 .loginWithCorrectCredentials("atrostyanko+0401@gmail.com", "QqtRK9elseEfAk6ilYcJ");
 
         dashboardPage.getSidebarProjectsAddButton().click();
-
-        Project project = new Project();
-        project.setName("AMiklashevich_9");
-        project.setAnnouncement("Test MULTIPLE");
-        project.setShowAnnouncement(true);
-        project.setType(ProjectType.MULTIPLE);
+        ProjectBuilder project = new ProjectBuilder.Builder()
+                .withName("A_Mik9")
+                .withAnnouncement("Test builder MULTIPLE")
+                .withIsShowAnnouncement(true)
+                .withType(ProjectType.MULTIPLE)
+                .build();
 
         ProjectSteps projectSteps = new ProjectSteps(browsersService);
         projectSteps.addProject(project);
 
-
         OverviewPage overviewPage = new OverviewPage(browsersService, false);
         overviewPage.isPageOpened();
         Assert.assertEquals(overviewPage.getMessageSuccess(), "Successfully added the new project.");
+
+
+
     }
     @Test (invocationCount = 2)
     public void AddNewProjectTestSingleWithBaseline() {
@@ -45,20 +48,23 @@ public class CreateEditDelProjectsInvocatoinCount extends BaseTest {
                 .loginWithCorrectCredentials("atrostyanko+0401@gmail.com", "QqtRK9elseEfAk6ilYcJ");
 
         dashboardPage.getSidebarProjectsAddButton().click();
-
-        Project project = new Project();
-        project.setName("AMiklashevich_10");
-        project.setAnnouncement("Test SINGLE_WITH_BASELINE");
-        project.setShowAnnouncement(true);
-        project.setType(ProjectType.SINGLE_WITH_BASELINE);
+        ProjectBuilder project = new ProjectBuilder.Builder()
+                .withName("A_Mik10")
+                .withAnnouncement("Test builder SINGLE_WITH_BASELINE")
+                .withIsShowAnnouncement(true)
+                .withType(ProjectType.MULTIPLE)
+                .build();
 
         ProjectSteps projectSteps = new ProjectSteps(browsersService);
         projectSteps.addProject(project);
 
-
         OverviewPage overviewPage = new OverviewPage(browsersService, false);
         overviewPage.isPageOpened();
         Assert.assertEquals(overviewPage.getMessageSuccess(), "Successfully added the new project.");
+
+        dashboardPage.getSidebarProjectsAddButton().click();
+
+
     }
     @Test (invocationCount = 2)
     public void AddNewProjectTestSingleForAllCases() {
@@ -68,20 +74,23 @@ public class CreateEditDelProjectsInvocatoinCount extends BaseTest {
                 .loginWithCorrectCredentials("atrostyanko+0401@gmail.com", "QqtRK9elseEfAk6ilYcJ");
 
         dashboardPage.getSidebarProjectsAddButton().click();
-
-        Project project = new Project();
-        project.setName("AMiklashevich_11");
-        project.setAnnouncement("Test SINGLE_FOR_ALL_CASES");
-        project.setShowAnnouncement(true);
-        project.setType(ProjectType.SINGLE_FOR_ALL_CASES);
+        ProjectBuilder project = new ProjectBuilder.Builder()
+                .withName("A_Mik11")
+                .withAnnouncement("Test builder SINGLE_FOR_ALL_CASES")
+                .withIsShowAnnouncement(true)
+                .withType(ProjectType.MULTIPLE)
+                .build();
 
         ProjectSteps projectSteps = new ProjectSteps(browsersService);
         projectSteps.addProject(project);
 
-
         OverviewPage overviewPage = new OverviewPage(browsersService, false);
         overviewPage.isPageOpened();
         Assert.assertEquals(overviewPage.getMessageSuccess(), "Successfully added the new project.");
+
+        dashboardPage.getSidebarProjectsAddButton().click();
+
+
     }
 
     @Test (dependsOnMethods = "AddNewProjectTestSingleWithBaseline")

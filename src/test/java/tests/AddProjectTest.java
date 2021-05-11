@@ -4,6 +4,7 @@ import baseEntities.BaseTest;
 import core.BrowsersService;
 import enums.ProjectType;
 import models.Project;
+import models.ProjectBuilder;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.AddProjectPage;
@@ -24,19 +25,20 @@ public class AddProjectTest extends BaseTest {
 
         dashboardPage.getSidebarProjectsAddButton().click();
 
-        Project project = new Project();
-        project.setName("AMiklashevich_9");
-        project.setAnnouncement("Test MULTIPLE");
-        project.setShowAnnouncement(true);
-        project.setType(ProjectType.MULTIPLE);
+        ProjectBuilder project = new ProjectBuilder.Builder()
+                .withName("A_Mik9")
+                .withAnnouncement("Test builder MULTIPLE")
+                .withIsShowAnnouncement(true)
+                .withType(ProjectType.MULTIPLE)
+                .build();
 
         ProjectSteps projectSteps = new ProjectSteps(browsersService);
         projectSteps.addProject(project);
 
-
         OverviewPage overviewPage = new OverviewPage(browsersService, false);
         overviewPage.isPageOpened();
         Assert.assertEquals(overviewPage.getMessageSuccess(), "Successfully added the new project.");
+
     }
     @Test
     public void AddNewProjectTestSingleWithBaseline() {
@@ -46,20 +48,21 @@ public class AddProjectTest extends BaseTest {
                 .loginWithCorrectCredentials("atrostyanko+0401@gmail.com", "QqtRK9elseEfAk6ilYcJ");
 
         dashboardPage.getSidebarProjectsAddButton().click();
-
-        Project project = new Project();
-        project.setName("AMiklashevich_10");
-        project.setAnnouncement("Test SINGLE_WITH_BASELINE");
-        project.setShowAnnouncement(true);
-        project.setType(ProjectType.SINGLE_WITH_BASELINE);
+        ProjectBuilder project = new ProjectBuilder.Builder()
+                .withName("A_Mik10")
+                .withAnnouncement("Test builder SINGLE_WITH_BASELINE")
+                .withIsShowAnnouncement(true)
+                .withType(ProjectType.MULTIPLE)
+                .build();
 
         ProjectSteps projectSteps = new ProjectSteps(browsersService);
         projectSteps.addProject(project);
 
-
         OverviewPage overviewPage = new OverviewPage(browsersService, false);
         overviewPage.isPageOpened();
         Assert.assertEquals(overviewPage.getMessageSuccess(), "Successfully added the new project.");
+
+
     }
     @Test
     public void AddNewProjectTestSingleForAllCases() {
@@ -68,21 +71,24 @@ public class AddProjectTest extends BaseTest {
         DashboardPage dashboardPage = loginSteps
                 .loginWithCorrectCredentials("atrostyanko+0401@gmail.com", "QqtRK9elseEfAk6ilYcJ");
 
-        dashboardPage.getSidebarProjectsAddButton().click();
 
-        Project project = new Project();
-        project.setName("AMiklashevich_11");
-        project.setAnnouncement("Test SINGLE_FOR_ALL_CASES");
-        project.setShowAnnouncement(true);
-        project.setType(ProjectType.SINGLE_FOR_ALL_CASES);
+        dashboardPage.getSidebarProjectsAddButton().click();
+        ProjectBuilder project = new ProjectBuilder.Builder()
+                .withName("A_Mik11")
+                .withAnnouncement("Test builder Test SINGLE_FOR_ALL_CASES")
+                .withIsShowAnnouncement(true)
+                .withType(ProjectType.MULTIPLE)
+                .build();
 
         ProjectSteps projectSteps = new ProjectSteps(browsersService);
         projectSteps.addProject(project);
 
-
         OverviewPage overviewPage = new OverviewPage(browsersService, false);
         overviewPage.isPageOpened();
         Assert.assertEquals(overviewPage.getMessageSuccess(), "Successfully added the new project.");
+
+
+
     }
 
 }
