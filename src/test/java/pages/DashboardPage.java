@@ -5,10 +5,15 @@ import core.BrowsersService;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+
 public class DashboardPage extends BasePage {
     private static String END_POINT = "index.php?/dashboard";
 
+
     protected static final By sidebarProjectsAddButtonBy = By.id("sidebar-projects-add");
+    protected static final By projectsListBy = By.className("flex-projects-row");
+
 
     public DashboardPage(BrowsersService browsersService, boolean openPageByUrl) {
         super(browsersService, openPageByUrl);
@@ -29,5 +34,10 @@ public class DashboardPage extends BasePage {
 
     }
 
-    public WebElement getSidebarProjectsAddButton() { return driver.findElement(sidebarProjectsAddButtonBy); }
+    public WebElement getSidebarProjectsAddButton() {
+        return driver.findElement(sidebarProjectsAddButtonBy);
+    }
+
 }
+
+
