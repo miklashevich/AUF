@@ -28,4 +28,12 @@ public class LoginSteps extends BaseStep {
 
         return new LoginPage(browsersService, false);
     }
+
+    public LoginPage loginNegativeTest() {
+        LoginPage loginPage = new LoginPage(browsersService, true);
+        loginPage.getLogInButton().click();
+
+        return new LoginPage(browsersService, false);
+    }
+
 }
