@@ -1,0 +1,6 @@
+{
+  "name": "name",
+  "announcement": "test announsement",
+  "isShowAnnouncement": true,
+  "type": "SINGLE_FOR_ALL_CASES"
+}

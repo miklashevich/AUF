@@ -67,6 +67,11 @@
             <artifactId>rest-assured</artifactId>
             <version>4.3.3</version>
         </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.20</version>
+        </dependency>
 
     </dependencies>
 
