@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="general">
+     <test name="GUI tests">
+         <classes>
+             <class name="tests.uiTests.SmokeTest1"></class>
+             <class name="tests.uiTests.SmokeTest2"></class>
+         </classes>
+     </test>
+</suite>
